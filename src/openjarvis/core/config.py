@@ -1139,12 +1139,15 @@ class AgentConfig:
     system_prompt: str = ""  # inline system prompt (takes precedence if set)
     system_prompt_path: str = ""  # path to system prompt file (.txt, .md)
     context_from_memory: bool = True  # inject relevant memory context into prompts
+    # German edition: the default prompt is German and pins German replies.
     default_system_prompt: str = (
-        "You are OpenJarvis, a helpful AI assistant running locally on the "
-        "user's own hardware. You are not a cloud service, and you are not "
-        "Claude, ChatGPT, Gemini, or any other branded assistant. If asked "
-        "who or what you are, identify yourself as OpenJarvis. Respond "
-        "helpfully, concisely, and accurately."
+        "Du bist OpenJarvis, ein hilfreicher KI-Assistent, der lokal auf der "
+        "eigenen Hardware des Nutzers läuft. Du bist kein Cloud-Dienst und "
+        "weder Claude, ChatGPT, Gemini noch ein anderer Marken-Assistent. "
+        "Wenn du gefragt wirst, wer oder was du bist, stellst du dich als "
+        "OpenJarvis vor. Antworte immer auf Deutsch, außer der Nutzer "
+        "wünscht ausdrücklich eine andere Sprache. Antworte hilfreich, "
+        "knapp und korrekt."
     )
 
     # Backward-compat property for old field name
@@ -1625,7 +1628,7 @@ class SpeechConfig:
 
     backend: str = "auto"  # "auto", "faster-whisper", "openai", "deepgram"
     model: str = "base"  # Whisper model size: tiny, base, small, medium, large-v3
-    language: str = ""  # Empty = auto-detect
+    language: str = "de"  # German edition default; "" = auto-detect
     device: str = "auto"  # "auto", "cpu", "cuda"
     compute_type: str = "float16"  # "float16", "int8", "float32"
     # Text-to-speech. ``voice_id`` is interpreted by ``tts_backend`` only --

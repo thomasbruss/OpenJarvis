@@ -252,7 +252,8 @@ class TestAgentConfigNew:
         claiming to be Claude/ChatGPT/etc."""
         prompt = AgentConfig().default_system_prompt
         assert "OpenJarvis" in prompt
-        assert "not Claude" in prompt
+        assert "weder Claude" in prompt
+        assert "auf Deutsch" in prompt
 
 
 class TestNestedEngineConfig:
